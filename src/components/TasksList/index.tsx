@@ -1,28 +1,32 @@
+import { useTasks } from '@/hooks/useTasks';
 import { Task } from '../Task';
 
 import styles from './styles.module.css';
 
 export function TasksList() {
+	const { tasks } = useTasks();
+	const doneTasks = tasks.filter((task) => task.isDone);
+
 	return (
 		<div className={styles['tasks-container']}>
 			<header>
 				<div>
 					<strong>Tarefas criadas</strong>
-					<span>5</span>
+					<span>{tasks.length}</span>
 				</div>
 
 				<div>
 					<strong>Concluídas</strong>
-					<span>2 de 5</span>
+					<span>
+						{doneTasks.length} de {tasks.length}
+					</span>
 				</div>
 			</header>
 
 			<div className={styles.tasks}>
-				<Task />
-				<Task />
-				<Task />
-				<Task />
-				<Task />
+				{tasks.map((task) => (
+					<Task key={task.id} id={task.id} description={task.description} isDone={task.isDone} />
+				))}
 			</div>
 		</div>
 	);

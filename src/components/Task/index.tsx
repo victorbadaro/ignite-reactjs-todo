@@ -1,22 +1,29 @@
+import type { Task as TaskType } from '@/contexts/TasksContext';
+import { useTasks } from '@/hooks/useTasks';
 import { CheckCircle, Circle, Trash } from '@phosphor-icons/react';
-import { useState } from 'react';
 
 import styles from './styles.module.css';
 
-export function Task() {
-	const [isTaskDone, setIsTaskDone] = useState(false);
+interface TaskProps extends TaskType {}
+
+export function Task({ id, description, isDone }: TaskProps) {
+	const { toggleCheckTask, deleteTask } = useTasks();
 
 	function handleCheckTask() {
-		setIsTaskDone((prev) => !prev);
+		toggleCheckTask(id);
+	}
+
+	function handleDeleteTask() {
+		deleteTask(id);
 	}
 
 	return (
 		<div className={styles.task}>
 			<button type="button" onClick={handleCheckTask}>
-				{isTaskDone ? <CheckCircle size={17} weight="fill" color="#5e60ce" /> : <Circle size={17} weight="bold" color="#4ea8de" />}
+				{isDone ? <CheckCircle size={17} weight="fill" color="#5e60ce" /> : <Circle size={17} weight="bold" color="#4ea8de" />}
 			</button>
-			<p>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
-			<button type="button">
+			<p>{description}</p>
+			<button type="button" onClick={handleDeleteTask}>
 				<Trash size={14} />
 			</button>
 		</div>
