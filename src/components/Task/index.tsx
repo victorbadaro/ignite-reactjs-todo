@@ -23,7 +23,7 @@ export function Task({ id, description, isDone }: TaskProps) {
 				{isDone ? <CheckCircle size={17} weight="fill" color="#5e60ce" /> : <Circle size={17} weight="bold" color="#4ea8de" />}
 			</button>
 			<p>{description}</p>
-			<button type="button" onClick={handleDeleteTask}>
+			<button type="button" title="Excluir" onClick={handleDeleteTask}>
 				<Trash size={14} />
 			</button>
 		</div>
