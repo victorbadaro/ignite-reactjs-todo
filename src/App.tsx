@@ -13,7 +13,10 @@ export function App() {
 	function handleCreateTask(event: FormEvent) {
 		event.preventDefault();
 
-		createTask(description);
+		if (description.trim()) {
+			createTask(description);
+		}
+
 		setDescription('');
 	}
 
