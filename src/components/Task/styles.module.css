@@ -9,10 +9,19 @@
 	background-color: var(--gray-500);
 }
 
+.checked-task {
+	border-color: var(--gray-500);
+}
+
 .task p {
 	flex: 1;
 	font-size: 14px;
 	line-height: 1.4;
+}
+
+.checked-task p {
+	text-decoration: line-through;
+	color: var(--gray-300);
 }
 
 .task button {

@@ -18,7 +18,7 @@ export function Task({ id, description, isDone }: TaskProps) {
 	}
 
 	return (
-		<div className={styles.task}>
+		<div className={isDone ? `${styles.task} ${styles['checked-task']}` : styles.task}>
 			<button type="button" onClick={handleCheckTask}>
 				{isDone ? <CheckCircle size={17} weight="fill" color="#5e60ce" /> : <Circle size={17} weight="bold" color="#4ea8de" />}
 			</button>
