@@ -19,17 +19,24 @@ export function Task({ id, description, isDone }: TaskProps) {
 		deleteTask(id);
 	}
 
-	function handleMouseOver() {
+	function handleFocusCheckbox() {
 		setIsMouseOver(true);
 	}
 
-	function handleMouseLeave() {
+	function handleBlurCheckbox() {
 		setIsMouseOver(false);
 	}
 
 	return (
 		<div className={isDone ? `${styles.task} ${styles['checked-task']}` : styles.task}>
-			<button type="button" onClick={handleCheckTask} onMouseOver={handleMouseOver} onFocus={handleMouseOver} onMouseLeave={handleMouseLeave}>
+			<button
+				type="button"
+				onClick={handleCheckTask}
+				onMouseOver={handleFocusCheckbox}
+				onFocus={handleFocusCheckbox}
+				onMouseLeave={handleBlurCheckbox}
+				onBlur={handleBlurCheckbox}
+			>
 				{isDone ? (
 					<CheckCircle size={17} weight="fill" color={isMouseOver ? '#8284fa' : '#5e60ce'} />
 				) : isMouseOver ? (
