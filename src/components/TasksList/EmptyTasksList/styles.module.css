@@ -1,0 +1,31 @@
+.empty-tasks-list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-top: 1px solid var(--gray-400);
+	border-radius: 8px;
+	height: 244px;
+}
+
+.empty-tasks-list > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	row-gap: 1rem;
+}
+
+.empty-tasks-list > div img {
+	width: 3.5rem;
+	height: 3.5rem;
+}
+
+.empty-tasks-list > div div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	line-height: 1.4;
+	color: var(--gray-300);
+}

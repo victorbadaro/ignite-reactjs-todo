@@ -1,4 +1,5 @@
 import { useTasks } from '@/hooks/useTasks';
+import { EmptyTasksList } from './EmptyTasksList';
 import { Task } from './Task';
 
 import styles from './styles.module.css';
@@ -23,11 +24,15 @@ export function TasksList() {
 				</div>
 			</header>
 
-			<div className={styles.tasks}>
-				{tasks.map((task) => (
-					<Task key={task.id} id={task.id} description={task.description} isDone={task.isDone} />
-				))}
-			</div>
+			{tasks.length === 0 ? (
+				<EmptyTasksList />
+			) : (
+				<div className={styles.tasks}>
+					{tasks.map((task) => (
+						<Task key={task.id} id={task.id} description={task.description} isDone={task.isDone} />
+					))}
+				</div>
+			)}
 		</div>
 	);
 }
