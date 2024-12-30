@@ -1,5 +1,5 @@
 import { useTasks } from '@/hooks/useTasks';
-import { Task } from '../Task';
+import { Task } from './Task';
 
 import styles from './styles.module.css';
 
